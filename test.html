@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	<title></title>
+	</head>
+	<body ng-app="spark" ng-controller="Colors">
+		
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="spark.js"></script>
+		<script type="text/javascript" src="angular-resource.js"></script>
+		<div class="container" style="background-color: {{ color | hexadecimal }}">
+			{{ color | hexadecimal }}  {{ pattern }}
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('rainbow')">Rainbow</button>
+					<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('wipe')">Wipe</button>
+					<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('marquee')">Marquee</button>
+					<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('easter')">Easter</button>
+					<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('stop')">Stop</button>
+					<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('off')">Off</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default" ng-click="setColor('ff0000')">Red</button>
+						<button type="button" class="btn btn-default" ng-click="setColor('FF6500')">Orange</button>
+						<button type="button" class="btn btn-default" ng-click="setColor('fff000')">Yellow</button>
+						<button type="button" class="btn btn-default" ng-click="setColor('00ff00')">Green</button>
+						<button type="button" class="btn btn-default" ng-click="setColor('0000ff')">Blue</button>
+						<button type="button" class="btn btn-default" ng-click="setColor('4B00c5')">Indigo</button>
+						<button type="button" class="btn btn-default" ng-click="setColor('EE22EE')">Violet</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default" ng-click="setColor('FFB6C1')">Pink</button>
+						<button type="button" class="btn btn-default" ng-click="setColor('40FF63')">Soft Green</button>
+						<button type="button" class="btn btn-default" ng-click="setColor('65CCFF')">Baby Blue</button>
+						<button type="button" class="btn btn-default" ng-click="setColor('FFEC30')">Soft Yellow</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

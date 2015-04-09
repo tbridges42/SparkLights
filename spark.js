@@ -19,6 +19,30 @@ app.controller('MainCtrl', function($scope, $interval, Light) {
     }, 10000);    
 });
 
+app.filter('hexadecimal', function() {
+	return function (input) {
+        if (angular.isNumber(input)) {
+            var tempString = Number(input).toString(16).toUpperCase();
+			var temp;
+			for (var i=1; i<6; i++) {	
+				temp = Math.pow(16,i);
+				if (input < temp){
+					tempString = "0" + tempString;
+				}
+			}
+			var r = parseInt(tempString.substr(0, 2), 16),
+				g = parseInt(tempString.substr(2, 2), 16),
+				b = parseInt(tempString.substr(4, 2), 16);
+
+			return '#' +
+				((0|(1<<8) + r * 5).toString(16)).substr(1) +
+				((0|(1<<8) + g * 5).toString(16)).substr(1) +
+				((0|(1<<8) + b * 5).toString(16)).substr(1);
+        }
+        return input;
+    };
+});
+
 app.controller('Colors', function($scope,$http,$interval, Color, Pattern) {
 	$scope.setColor = function($color) {
 		$http({
@@ -44,11 +68,15 @@ app.controller('Colors', function($scope,$http,$interval, Color, Pattern) {
 	};
 	$interval(function() {
         $scope.data1 = Color.get({}, function(){
+			$scope.oldColor = $scope.color;
             $scope.color = $scope.data1.result;
+			if ($scope.color != $scope.oldColor) {
+				$scope.apply();
+			}
         });
 		$scope.data2 = Pattern.get({}, function(){
             $scope.pattern = $scope.data2.result;
         });
-    }, 1000);
+    }, 500);
 
 });

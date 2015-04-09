@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	<title></title>
+	</head>
+	<body ng-app="spark" ng-controller="Colors">
+		
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="spark.js"></script>
+		<script type="text/javascript" src="angular-resource.js"></script>
+		<div class="container">
+			{{ color | hexadecimal }}  {{ pattern }}
+			<div class="row">
+			<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('rainbow')">Rainbow</button>
+			<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('wipe')">Wipe</button>
+			<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('marquee')" style="background-color: {{ color | hexadecimal }}">Marquee</button>
+			<button type="button" class="btn btn-default btn-lg" ng-click="setPattern('off')">Off</button>
+				<div class="btn-group">
+					<button type="button" class="btn btn-default" ng-click="setColor('ff0000')">Red</button>
+					<button type="button" class="btn btn-default" ng-click="setColor('FF6500')">Orange</button>
+					<button type="button" class="btn btn-default" ng-click="setColor('fff000')">Yellow</button>
+					<button type="button" class="btn btn-default" ng-click="setColor('00ff00')">Green</button>
+					<button type="button" class="btn btn-default" ng-click="setColor('0000ff')">Blue</button>
+					<button type="button" class="btn btn-default" ng-click="setColor('4B00c5')">Indigo</button>
+					<button type="button" class="btn btn-default" ng-click="setColor('EE22EE')">Violet</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
